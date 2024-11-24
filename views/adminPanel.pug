@@ -59,7 +59,7 @@ body
         tbody
           each reserva in reservas
             tr
-              td= reserva._id
+              td= reserva.id
               td= reserva.cliente
               td= reserva.email
               td= reserva.fecha
@@ -70,7 +70,7 @@ body
               td= reserva.reservadoPor
               td 
                 form(action=`/api/admin/cancelar`, method="post", style="display:inline")
-                  input(type="hidden" name="id" value=reserva._id)
+                  input(type="hidden" name="id" value=reserva.id)
                   button(type="submit") Cancelar
                 |
     // Sección para filtrar reservas por fecha
