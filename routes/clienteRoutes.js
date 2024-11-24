@@ -52,7 +52,7 @@ router.post('/reservar', async (req, res) => {
     return res.send(`
       <div style="font-family: Arial, sans-serif; margin: 20px; padding: 20px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
       <h2 style="color: #333;">Reserva realizada con éxito</h2>
-      <p>Reserva número <strong>${nuevaReserva._id}</strong> para el día <strong>${fecha}</strong> a las <strong>${hora}</strong> horas.</p>
+      <p>Reserva número <strong>${nuevaReserva.id}</strong> para el día <strong>${fecha}</strong> a las <strong>${hora}</strong> horas.</p>
       <a href="/api/cliente" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">Volver al panel de cliente</a>
       </div>
     `);

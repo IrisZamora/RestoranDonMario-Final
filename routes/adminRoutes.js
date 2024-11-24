@@ -68,8 +68,15 @@ router.post('/reservar', async (req, res) => {
     // Marcar la mesa como no disponible
     mesaSeleccionada.disponible = false;
     await mesaSeleccionada.save();
+    
+    return res.send(`
+      <div style="font-family: Arial, sans-serif; margin: 20px; padding: 20px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+      <h2 style="color: #333;">Reserva realizada con éxito</h2>
+      <p>Reserva número <strong>${nuevaReserva.id}</strong> para el día <strong>${fecha}</strong> a las <strong>${hora}</strong> horas.</p>
+      <a href="/api/cliente" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">Volver al panel de cliente</a>
+      </div>
+    `);
 
-    res.send(`Reserva realizada con éxito. ID de reserva: ${nuevaReserva._id}`);
   } catch (error) {
     console.error('Error al procesar la reserva:', error);
     res.status(500).send('Error interno del servidor');
