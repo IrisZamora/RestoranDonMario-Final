@@ -89,7 +89,7 @@ router.post('/cancelar', async (req, res) => {
 
   try {
     // Cancelar la reserva en la base de datos
-    const reservaCancelada = await Reserva.findByIdAndUpdate(id, { estado: 'Cancelada' }, { new: true });
+    const reservaCancelada = await Reserva.findOneAndUpdate({id}, { estado: 'Cancelada' }, { new: true });
 
     if (!reservaCancelada) {
       return res.status(404).send('No se encontró la reserva para cancelar.');

@@ -86,9 +86,9 @@ body
       h2 Cancelar Reserva
       form(action="/api/admin/cancelar", method="post")
         label(for="reservaID") ID de la Reserva a Cancelar:
-        input(type="text" id="reservaID" name="id" required)
-        button(type="submit") Cancelar Reserva
-
+        input(type="number" id="reservaID" name="id" required)
+        button(type="submit") Cancelar Reserva 
+        
     // Sección para hacer una nueva reserva
     section
       h2 Tomar Reserva
