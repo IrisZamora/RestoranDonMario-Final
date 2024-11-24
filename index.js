@@ -7,7 +7,6 @@ import { Server } from 'socket.io';
 import moment from 'moment';
 import connectDB from './db.js';
 import dotenv from 'dotenv';
-import serverless from 'serverless-http';
 
 // Cargar las variables de entorno desde el archivo .env
 dotenv.config();
@@ -149,6 +148,3 @@ const PORT = process.env.PORT || 8000;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-
-export default serverless(app);
