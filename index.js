@@ -7,7 +7,6 @@ import { Server } from 'socket.io';
 import moment from 'moment';
 import connectDB from './db.js';
 import dotenv from 'dotenv';
-//import serverless from 'serverless-http';
 
 // Cargar las variables de entorno desde el archivo .env
 dotenv.config();
@@ -16,7 +15,6 @@ dotenv.config();
 // Importar las rutas
 import clienteRoutes from './routes/clienteRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
-import chatRoutes from './routes/chatRoutes.js';
 import Reserva from './models/reserva.js'; // Modelo de reservas
 import Mesa from './models/mesa.js'; // Modelo de mesas
 
@@ -53,8 +51,6 @@ connectDB();
 // Definir rutas
 app.use('/api/cliente', clienteRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/chat', chatRoutes);
-
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -152,5 +148,3 @@ server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-
-//export default serverless(app);
