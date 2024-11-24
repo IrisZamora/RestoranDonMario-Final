@@ -33,7 +33,9 @@ router.post('/reservar', async (req, res) => {
     }
 
     // Crear la nueva reserva en la base de datos
+    const totalReservas = await Reserva.countDocuments({});
     const nuevaReserva = await Reserva.create({
+      id: totalReservas + 1,
       cliente,
       email,
       fecha,
