@@ -16,7 +16,6 @@ dotenv.config();
 // Importar las rutas
 import clienteRoutes from './routes/clienteRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
-import chatRoutes from './routes/chatRoutes.js';
 import Reserva from './models/reserva.js'; // Modelo de reservas
 import Mesa from './models/mesa.js'; // Modelo de mesas
 
