@@ -76,7 +76,7 @@ router.get('/filtrar-reservasId', async (req, res) => {
     //}
 
     // Buscar una reserva por ID en la base de datos
-    const reservaFiltrada = await Reserva.find(id);
+    const reservaFiltrada = await Reserva.findById(id);
 
     if (!reservaFiltrada) {
       return res.status(404).send('No se encontró ninguna reserva con ese ID.');
