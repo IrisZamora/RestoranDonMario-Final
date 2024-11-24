@@ -66,17 +66,18 @@ router.post('/reservar', async (req, res) => {
 
 
   // Ruta para filtrar reservas por número (id)
+// Ruta para filtrar reservas por número (id)
 router.get('/filtrar-reservasId', async (req, res) => {
   const { idFiltro } = req.query;
 
   try {
-    // Convertir el idFiltro a ObjectId si es válido
-    if (!ObjectId.isValid(idFiltro)) {
-      return res.status(400).send('ID inválido');
+    // Validar que el idFiltro no esté vacío
+    if (!idFiltro) {
+      return res.status(400).send('ID de filtro es requerido');
     }
 
-    // Buscar una reserva por ID en la base de datos
-    const reservaFiltrada = await Reserva.findById(idFiltro);
+    // Buscar una reserva por el campo personalizado `id`
+    const reservaFiltrada = await Reserva.findOne({ id: idFiltro });
 
     if (!reservaFiltrada) {
       return res.status(404).send('No se encontró ninguna reserva con ese ID.');
@@ -97,7 +98,7 @@ router.post('/cancelar', async (req, res) => {
 
   try {
     // Cancelar la reserva en la base de datos
-    const reservaCancelada = await Reserva.findByIdAndUpdate(id, { estado: 'Cancelada' }, { new: true });
+    const reservaCancelada = await Reserva.findOneAndUpdate({id}, { estado: 'Cancelada' }, { new: true });
 
     if (!reservaCancelada) {
       return res.status(404).send('No se encontró la reserva para cancelar.');
