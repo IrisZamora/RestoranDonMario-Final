@@ -28,3 +28,9 @@ MongoDB Atlas: Base de datos en la nube para almacenar mesas y reservas.
 Mongoose: ODM para interactuar con la base de datos MongoDB.
 Pug: Motor de plantillas para renderizar el frontend.
 Socket.io: Para implementar un chat en tiempo real
+
+Instalación y configuración.
+
+Requisitos previos:
+-Tener instalado Node.js y npm .
+-Crear una base de datos en MongoDB Atlas.
