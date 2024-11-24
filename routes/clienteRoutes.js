@@ -68,16 +68,12 @@ router.post('/reservar', async (req, res) => {
   // Ruta para filtrar reservas por número (id)
 // Ruta para filtrar reservas por número (id)
 router.get('/filtrar-reservasId', async (req, res) => {
-  const { id } = req.query;
+  const { idFiltro } = req.query;
 
   try {
-    // Convertir el idFiltro a ObjectId si es válido
-    if (!ObjectId.isValid(idFiltro)) {
-      return res.status(400).send('ID inválido');
-    }
 
     // Buscar una reserva por ID en la base de datos
-    const reservaFiltrada = await Reserva.findById(idFiltro);
+    const reservaFiltrada = await Reserva.findOne({id: idFiltro});
 
     if (!reservaFiltrada) {
       return res.status(404).send('No se encontró ninguna reserva con ese ID.');
