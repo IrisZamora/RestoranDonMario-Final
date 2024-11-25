@@ -94,7 +94,7 @@ section
           th Reservado por:
       tbody
         tr
-          td= reserva.id
+          td= reserva._id
           td= reserva.cliente
           td= reserva.email
           td= reserva.fecha
@@ -105,7 +105,7 @@ section
           td= reserva.reservadoPor
           td 
             form(action=`/api/cliente/cancelar`, method="post", style="display:inline")
-              input(type="hidden" name="id" value=reserva.id)
+              input(type="hidden" name="id" value=reserva._id)
               button(type="submit") Cancelar
   else
     p No se encontró ninguna reserva con ese ID.
